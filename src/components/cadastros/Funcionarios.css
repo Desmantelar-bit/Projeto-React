@@ -1,0 +1,58 @@
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  max-width: 540px;
+  margin: 2rem auto;
+}
+
+.glass-card h2 {
+  color: #1a1a2e;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.glass-card .form-label {
+  color: #2d2d2d;
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-radius: 8px !important;
+  color: #1a1a1a !important;
+  backdrop-filter: blur(4px);
+}
+
+.glass-input::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.75) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
+  border-color: rgba(99, 102, 241, 0.5) !important;
+}
+
+.glass-input option {
+  background: #fff;
+  color: #1a1a1a;
+}
+
+.glass-btn {
+  background: #6366f1;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+  transition: background 0.2s;
+}
+
+.glass-btn:hover {
+  background: #4f46e5;
+  color: #fff;
+}
