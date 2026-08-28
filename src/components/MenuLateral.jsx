@@ -19,13 +19,13 @@ function MenuLateral({ aberto, setTela }) {
         </button>
         {cadastroAberto && (
           <div className="ms-3 d-grid gap-2">
-            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('funcionarios')}>Funcionários</button>
-            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('clientes')}>Clientes</button>
-            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('produtos')}>Produtos</button>
-            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('fornecedores')}>Fornecedores</button>
-            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('setores')}>Setores</button>
-            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('usuarios')}>Usuários</button>
-            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('equipamentos')}>Equipamentos</button>
+            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('safra')}>Safra</button>
+            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('unidade')}>Unidade</button>
+            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('equipamento')}>Equipamento</button>
+            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('medicao')}>Medição</button>
+            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('unidademedida')}>Unidade de Medida</button>
+            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('tipoinformacao')}>Tipo de Informação</button>
+            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('indicadores')}>Indicadores</button>
           </div>
         )}
       </div>

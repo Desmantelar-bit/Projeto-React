@@ -1,32 +1,32 @@
 import { useState } from 'react'
-import '../cadastros/Funcionarios.css'
+import './Estilo.css'
 
-function Setores() {
+function Indicadores() {
   const [nome, setNome] = useState('')
   const [descricao, setDescricao] = useState('')
-  const [responsavel, setResponsavel] = useState('')
+  const [un, setUn] = useState('')
   const [erros, setErros] = useState({})
   const [mensagem, setMensagem] = useState('')
 
   function salvar(event) {
     event.preventDefault()
     const novosErros = {}
-    if (nome.trim() === '') novosErros.nome = 'Informe o nome do setor'
+    if (nome.trim() === '') novosErros.nome = 'Informe o nome'
     if (descricao.trim() === '') novosErros.descricao = 'Informe a descrição'
-    if (responsavel.trim() === '') novosErros.responsavel = 'Informe o responsável'
+    if (un.trim() === '') novosErros.un = 'Informe a unidade'
     setErros(novosErros)
     if (Object.keys(novosErros).length > 0) { setMensagem(''); return }
-    setMensagem('Setor cadastrado com sucesso!')
+    setMensagem('Indicador cadastrado com sucesso!')
   }
 
   return (
     <section className="p-4">
       <div className="glass-card">
-        <h2>Cadastro de Setor</h2>
+        <h2>Cadastro de Indicador</h2>
         {mensagem && <div className="alert alert-success">{mensagem}</div>}
         <form onSubmit={salvar}>
           <div className="mb-3">
-            <label className="form-label">Nome do Setor</label>
+            <label className="form-label">Nome</label>
             <input type="text" className={`form-control glass-input ${erros.nome ? 'is-invalid' : ''}`} value={nome} onChange={(e) => setNome(e.target.value)} />
             {erros.nome && <div className="invalid-feedback">{erros.nome}</div>}
           </div>
@@ -36,9 +36,9 @@ function Setores() {
             {erros.descricao && <div className="invalid-feedback">{erros.descricao}</div>}
           </div>
           <div className="mb-3">
-            <label className="form-label">Responsável</label>
-            <input type="text" className={`form-control glass-input ${erros.responsavel ? 'is-invalid' : ''}`} value={responsavel} onChange={(e) => setResponsavel(e.target.value)} />
-            {erros.responsavel && <div className="invalid-feedback">{erros.responsavel}</div>}
+            <label className="form-label">Unidade (Un)</label>
+            <input type="text" className={`form-control glass-input ${erros.un ? 'is-invalid' : ''}`} value={un} onChange={(e) => setUn(e.target.value)} />
+            {erros.un && <div className="invalid-feedback">{erros.un}</div>}
           </div>
           <button type="submit" className="btn glass-btn">Cadastrar</button>
         </form>
@@ -47,4 +47,4 @@ function Setores() {
   )
 }
 
-export default Setores
+export default Indicadores

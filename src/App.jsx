@@ -2,13 +2,13 @@ import { useState } from 'react'
 import Header from './components/Header'
 import MenuLateral from './components/MenuLateral'
 import Conteudo from './components/Conteudo'
-import Funcionarios from './components/cadastros/Funcionarios'
-import Clientes from './components/cadastros/Clientes'
-import Produtos from './components/cadastros/Produtos'
-import Fornecedores from './components/cadastros/Fornecedores'
-import Setores from './components/cadastros/Setores'
-import Usuarios from './components/cadastros/Usuarios'
-import Equipamentos from './components/cadastros/Equipamentos'
+import Safra from './components/cadastros/Safra'
+import Unidade from './components/cadastros/Unidade'
+import Equipamento from './components/cadastros/Equipameto'
+import Medicao from './components/cadastros/Medicao'
+import UnidadeMedida from './components/cadastros/UnidadeMedida'
+import TipoInformacao from './components/cadastros/TipoInformacao'
+import Indicadores from './components/cadastros/Indicadores'
 import './App.css'
 
 function App() {
@@ -31,13 +31,13 @@ function App() {
             </button>
           </div>
           {tela === 'inicio' && <Conteudo />}
-          {tela === 'funcionarios' && <Funcionarios />}
-          {tela === 'clientes' && <Clientes />}
-          {tela === 'produtos' && <Produtos />}
-          {tela === 'fornecedores' && <Fornecedores />}
-          {tela === 'setores' && <Setores />}
-          {tela === 'usuarios' && <Usuarios />}
-          {tela === 'equipamentos' && <Equipamentos />}
+          {tela === 'safra' && <Safra />}
+          {tela === 'unidade' && <Unidade />}
+          {tela === 'equipamento' && <Equipamento />}
+          {tela === 'medicao' && <Medicao />}
+          {tela === 'unidademedida' && <UnidadeMedida />}
+          {tela === 'tipoinformacao' && <TipoInformacao />}
+          {tela === 'indicadores' && <Indicadores />}
         </main>
       </div>
     </>
