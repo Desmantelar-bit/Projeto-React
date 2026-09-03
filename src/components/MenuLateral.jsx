@@ -26,6 +26,7 @@ function MenuLateral({ aberto, setTela }) {
             <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('unidademedida')}>Unidade de Medida</button>
             <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('tipoinformacao')}>Tipo de Informação</button>
             <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('indicadores')}>Indicadores</button>
+            <button className="btn btn-sm btn-dark text-start" onClick={() => setTela('funcionarios')}>Funcionários</button>
           </div>
         )}
       </div>

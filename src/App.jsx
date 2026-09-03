@@ -9,6 +9,7 @@ import Medicao from './components/cadastros/Medicao'
 import UnidadeMedida from './components/cadastros/UnidadeMedida'
 import TipoInformacao from './components/cadastros/TipoInformacao'
 import Indicadores from './components/cadastros/Indicadores'
+import Funcionarios from './components/cadastros/Funcionarios'
 import './App.css'
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           {tela === 'unidademedida' && <UnidadeMedida />}
           {tela === 'tipoinformacao' && <TipoInformacao />}
           {tela === 'indicadores' && <Indicadores />}
+          {tela === 'funcionarios' && <Funcionarios />}
         </main>
       </div>
     </>
