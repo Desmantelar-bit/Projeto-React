@@ -1,58 +1,274 @@
+/* ============================================
+   DARK MODE BI — Design System
+   Fundo base: #0d1117  |  Painel: #131c2e  |  Card: #1a2540
+   Acento primário: #00b4ff  |  Sucesso: #00e5a0  |  Alerta: #f59e0b  |  Erro: #f87171
+   ============================================ */
+
+/* === Cards === */
 .glass-card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 16px;
+  background: #1a2540;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
   padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-  max-width: 540px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255,255,255,0.04) inset;
+  max-width: 560px;
   margin: 2rem auto;
 }
 
-.glass-card h2 {
-  color: #1a1a2e;
-  font-weight: 600;
+.glass-card-wide {
+  background: #1a2540;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255,255,255,0.04) inset;
+  margin: 2rem auto;
+}
+
+.glass-card h2,
+.glass-card-wide h2 {
+  color: #e2e8f0;
+  font-weight: 700;
   margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
 }
 
-.glass-card .form-label {
-  color: #2d2d2d;
+.glass-card .form-label,
+.glass-card-wide .form-label {
+  color: #94a3b8;
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
+/* === Inputs === */
 .glass-input {
-  background: rgba(255, 255, 255, 0.5) !important;
-  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  background: #0d1117 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 8px !important;
-  color: #1a1a1a !important;
-  backdrop-filter: blur(4px);
+  color: #e2e8f0 !important;
+  transition: all 0.2s !important;
+  font-size: 0.9rem !important;
 }
 
 .glass-input::placeholder {
-  color: rgba(0, 0, 0, 0.35);
+  color: rgba(148, 163, 184, 0.4);
 }
 
 .glass-input:focus {
-  background: rgba(255, 255, 255, 0.75) !important;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
-  border-color: rgba(99, 102, 241, 0.5) !important;
+  background: #0d1117 !important;
+  border-color: rgba(0, 180, 255, 0.4) !important;
+  box-shadow: 0 0 0 3px rgba(0, 180, 255, 0.1) !important;
+  color: #e2e8f0 !important;
 }
 
 .glass-input option {
-  background: #fff;
-  color: #1a1a1a;
+  background: #1a2540;
+  color: #e2e8f0;
 }
 
+/* === Botões === */
 .glass-btn {
-  background: #6366f1;
+  background: linear-gradient(135deg, #0090cc, #005f99);
   border: none;
   color: #fff;
   border-radius: 8px;
-  padding: 0.5rem 1.5rem;
-  transition: background 0.2s;
+  padding: 0.5rem 1.6rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(0, 144, 204, 0.3);
+  cursor: pointer;
 }
 
 .glass-btn:hover {
-  background: #4f46e5;
+  background: linear-gradient(135deg, #00aaee, #0070b8);
   color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 180, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.glass-btn-outline {
+  background: transparent;
+  border: 1px solid rgba(0, 180, 255, 0.3);
+  color: #00b4ff;
+  border-radius: 8px;
+  padding: 0.5rem 1.4rem;
+  font-weight: 500;
+  font-size: 0.88rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.glass-btn-outline:hover {
+  background: rgba(0, 180, 255, 0.08);
+  border-color: rgba(0, 180, 255, 0.6);
+  color: #33c6ff;
+}
+
+.glass-btn-success {
+  background: linear-gradient(135deg, #00c48c, #007a5a);
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.5rem 1.4rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(0, 196, 140, 0.25);
+  cursor: pointer;
+}
+
+.glass-btn-success:hover {
+  background: linear-gradient(135deg, #00dda0, #009970);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.glass-btn-danger {
+  background: transparent;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  color: #f87171;
+  border-radius: 8px;
+  padding: 0.5rem 1.4rem;
+  font-weight: 500;
+  font-size: 0.88rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.glass-btn-danger:hover {
+  background: rgba(248, 113, 113, 0.08);
+  border-color: rgba(248, 113, 113, 0.6);
+  color: #fca5a5;
+}
+
+/* === Alertas === */
+.glass-alert-success {
+  background: rgba(0, 229, 160, 0.08);
+  border: 1px solid rgba(0, 229, 160, 0.25);
+  color: #00e5a0;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+}
+
+.glass-alert-warning {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #fbbf24;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+}
+
+/* === Menu lateral === */
+.menu-titulo {
+  color: #475569;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #94a3b8;
+  border-radius: 8px;
+  text-align: left;
+  padding: 8px 12px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all 0.18s;
+  width: 100%;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.menu-btn:hover {
+  background: rgba(0, 180, 255, 0.07);
+  border-color: rgba(0, 180, 255, 0.15);
+  color: #e2e8f0;
+}
+
+.menu-btn-sub {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  border-radius: 6px;
+  text-align: left;
+  padding: 6px 12px;
+  font-size: 0.83rem;
+  transition: all 0.18s;
+  width: 100%;
+  margin-bottom: 1px;
+  cursor: pointer;
+}
+
+.menu-btn-sub:hover {
+  background: rgba(0, 180, 255, 0.06);
+  color: #94a3b8;
+  padding-left: 16px;
+}
+
+/* === Bootstrap overrides para dark mode === */
+.form-control,
+.form-select {
+  background-color: #0d1117 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #e2e8f0 !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #0d1117 !important;
+  border-color: rgba(0, 180, 255, 0.4) !important;
+  box-shadow: 0 0 0 3px rgba(0, 180, 255, 0.1) !important;
+  color: #e2e8f0 !important;
+}
+
+.form-label {
+  color: #94a3b8 !important;
+}
+
+.invalid-feedback {
+  color: #f87171 !important;
+}
+
+.text-danger {
+  color: #f87171 !important;
+}
+
+.img-thumbnail {
+  background-color: #1a2540 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.alert-success {
+  background: rgba(0, 229, 160, 0.08) !important;
+  border-color: rgba(0, 229, 160, 0.25) !important;
+  color: #00e5a0 !important;
+  border-radius: 8px !important;
+}
+
+.alert-warning {
+  background: rgba(245, 158, 11, 0.08) !important;
+  border-color: rgba(245, 158, 11, 0.25) !important;
+  color: #fbbf24 !important;
+  border-radius: 8px !important;
+}
+
+.alert-info {
+  background: rgba(0, 180, 255, 0.08) !important;
+  border-color: rgba(0, 180, 255, 0.25) !important;
+  color: #00b4ff !important;
+  border-radius: 8px !important;
 }
