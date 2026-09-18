@@ -3,20 +3,21 @@ import './cadastros/Estilo.css'
 function Conteudo() {
     return (
         <section className="p-4">
-            <div className="glass-card-wide" style={{ maxWidth: '700px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '1.5rem' }}>
+            <div className="glass-card-wide" style={{ maxWidth: '680px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '20px' }}>
                     <div style={{
-                        width: '52px', height: '52px', borderRadius: '14px',
-                        background: 'linear-gradient(135deg, #0090cc, #005f99)',
+                        width: '38px', height: '38px', borderRadius: '8px',
+                        background: 'var(--accent-primary)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: '24px', boxShadow: '0 0 20px rgba(0, 180, 255, 0.25)'
+                        fontSize: '17px',
+                        flexShrink: 0,
                     }}>⚡</div>
                     <div>
                         <h2 style={{ margin: 0 }}>Bem-vindo ao Sistema</h2>
-                        <p style={{ margin: 0, color: '#475569', fontSize: '0.88rem' }}>Gerencie seus cadastros com facilidade</p>
+                        <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '13px', marginTop: '2px' }}>Gerencie seus cadastros com facilidade</p>
                     </div>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
                     {[
                         { icon: '🌾', label: 'Safras' },
                         { icon: '👷', label: 'Funcionários' },
@@ -26,17 +27,16 @@ function Conteudo() {
                         { icon: '👤', label: 'Usuários' },
                     ].map(({ icon, label }) => (
                         <div key={label} style={{
-                            background: 'rgba(255,255,255,0.03)',
-                            border: '1px solid rgba(255,255,255,0.06)',
-                            borderRadius: '10px',
-                            padding: '16px',
+                            background: 'var(--bg-app)',
+                            border: '1px solid var(--border-subtle)',
+                            borderRadius: '8px',
+                            padding: '16px 12px',
                             textAlign: 'center',
-                            color: '#64748b',
+                            color: 'var(--text-muted)',
                             fontWeight: 500,
-                            fontSize: '0.85rem',
-                            transition: 'all 0.2s',
+                            fontSize: '13px',
                         }}>
-                            <div style={{ fontSize: '24px', marginBottom: '6px' }}>{icon}</div>
+                            <div style={{ fontSize: '18px', marginBottom: '6px' }}>{icon}</div>
                             {label}
                         </div>
                     ))}

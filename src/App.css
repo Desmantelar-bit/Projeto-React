@@ -7,6 +7,7 @@ html, body, #root {
   overflow: hidden;
 }
 
+/* === Layout Raiz === */
 .app-wrapper {
   display: flex;
   flex-direction: column;
@@ -20,69 +21,107 @@ html, body, #root {
   overflow: hidden;
 }
 
+/* === Menu Lateral === */
 .menu-lateral {
   flex-shrink: 0;
   height: 100%;
-  padding: 24px 16px;
+  padding: 8px;
   overflow-x: hidden;
   overflow-y: auto;
-  transition: width 0.3s ease, padding 0.3s ease;
-  background: #131c2e;
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 4px 0 32px rgba(0, 0, 0, 0.4);
+  transition: width 0.2s ease, padding 0.2s ease;
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-subtle);
 }
 
 .menu-lateral.aberto {
-  width: 260px;
+  width: 240px;
 }
 
 .menu-lateral.fechado {
   width: 0;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
 }
 
 .menu-lateral button {
   white-space: nowrap;
 }
 
+.menu-lateral::-webkit-scrollbar {
+  width: 6px;
+}
+.menu-lateral::-webkit-scrollbar-track {
+  background: transparent;
+}
+.menu-lateral::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+}
+.menu-lateral::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* === Área de Conteúdo === */
 .area-conteudo {
   flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: transparent;
+  background-color: var(--bg-app);
 }
 
+/* === Topbar === */
 .topbar {
   flex-shrink: 0;
-  background: #131c2e;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 12px 20px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 10px 20px;
 }
 
+/* === Scroll de Conteúdo === */
 .conteudo-scroll {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
+.conteudo-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.conteudo-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.conteudo-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+.conteudo-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* === Botão de Toggle do Menu === */
 .btn-menu {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #94a3b8;
-  border-radius: 8px;
-  padding: 6px 16px;
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 14px;
+  background: transparent;
+  border: 1px solid var(--border-default);
+  color: var(--text-muted);
+  border-radius: 6px;
+  font-size: 13px;
   font-weight: 500;
-  font-size: 0.9rem;
-  transition: all 0.2s;
+  font-family: var(--font-family);
+  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
   cursor: pointer;
 }
 
 .btn-menu:hover {
-  background: rgba(0, 180, 255, 0.08);
-  border-color: rgba(0, 180, 255, 0.25);
-  color: #00b4ff;
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--border-strong);
+  color: var(--text-heading);
+}
+
+.btn-menu:active {
+  background: rgba(255, 255, 255, 0.07);
 }
