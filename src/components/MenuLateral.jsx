@@ -1,38 +1,93 @@
 import { useState } from 'react'
 import './cadastros/Estilo.css'
 
-function MenuLateral({ aberto, setTela }) {
-  const [cadastroAberto, setCadastroAberto] = useState(false)
-  const [telaAtiva, setTelaAtiva] = useState('inicio')
+const gestaoBase = [
+  ['safra', 'Safra'],
+  ['unidade', 'Unidade'],
+  ['equipamento', 'Equipamento'],
+  ['medicao', 'Medição'],
+  ['unidademedida', 'Unidade de Medida'],
+  ['tipoinformacao', 'Tipo de Informação'],
+]
 
-  function navegar(tela) {
-    setTela(tela)
-    setTelaAtiva(tela)
+function MenuLateral({ aberto, tela, setTela, indicadores, indicadorSelecionado, selecionarIndicador }) {
+  const [gestaoAberta, setGestaoAberta] = useState(true)
+
+  function navegar(destino) {
+    setTela(destino)
   }
 
   return (
-    <aside className={`menu-lateral ${aberto ? 'aberto' : 'fechado'}`}>
-      <p className="menu-titulo">Navegação</p>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <button className={`menu-btn ${telaAtiva === 'inicio' ? 'ativo' : ''}`} onClick={() => navegar('inicio')}>🏠 Início</button>
-          <button className={`menu-btn ${cadastroAberto ? 'ativo' : ''}`} onClick={() => setCadastroAberto(!cadastroAberto)}>
-            📋 Cadastros {cadastroAberto ? '▲' : '▼'}
+    <aside className={`menu-lateral ${aberto ? 'aberto' : 'fechado'}`} aria-label="Navegação principal">
+      <p className="menu-titulo">Workspace</p>
+      <button
+        className={`menu-btn ${tela === 'inicio' ? 'ativo' : ''}`}
+        onClick={() => navegar('inicio')}
+      >
+        Visão geral
+      </button>
+
+      <div className="menu-grupo">
+        <button
+          className="menu-grupo-toggle"
+          aria-expanded={gestaoAberta}
+          onClick={() => setGestaoAberta(!gestaoAberta)}
+        >
+          <span>Gestão base</span>
+          <span aria-hidden="true">{gestaoAberta ? '−' : '+'}</span>
+        </button>
+        {gestaoAberta && gestaoBase.map(([destino, rotulo]) => (
+          <button
+            key={destino}
+            className={`menu-btn-sub ${tela === destino ? 'ativo' : ''}`}
+            onClick={() => navegar(destino)}
+          >
+            {rotulo}
           </button>
-          {cadastroAberto && (
-            <div style={{ marginLeft: '8px', display: 'flex', flexDirection: 'column' }}>
-              <button className={`menu-btn-sub ${telaAtiva === 'safra' ? 'ativo' : ''}`} onClick={() => navegar('safra')}>🌾 Safra</button>
-              <button className={`menu-btn-sub ${telaAtiva === 'unidade' ? 'ativo' : ''}`} onClick={() => navegar('unidade')}>🏢 Unidade</button>
-              <button className={`menu-btn-sub ${telaAtiva === 'equipamento' ? 'ativo' : ''}`} onClick={() => navegar('equipamento')}>⚙️ Equipamento</button>
-              <button className={`menu-btn-sub ${telaAtiva === 'medicao' ? 'ativo' : ''}`} onClick={() => navegar('medicao')}>📏 Medição</button>
-              <button className={`menu-btn-sub ${telaAtiva === 'unidademedida' ? 'ativo' : ''}`} onClick={() => navegar('unidademedida')}>📐 Unidade de Medida</button>
-              <button className={`menu-btn-sub ${telaAtiva === 'tipoinformacao' ? 'ativo' : ''}`} onClick={() => navegar('tipoinformacao')}>🏷️ Tipo de Informação</button>
-              <button className={`menu-btn-sub ${telaAtiva === 'indicadores' ? 'ativo' : ''}`} onClick={() => navegar('indicadores')}>📊 Indicadores</button>
-              <button className={`menu-btn-sub ${telaAtiva === 'funcionarios' ? 'ativo' : ''}`} onClick={() => navegar('funcionarios')}>👷 Funcionários</button>
-              <button className={`menu-btn-sub ${telaAtiva === 'usuarios' ? 'ativo' : ''}`} onClick={() => navegar('usuarios')}>👤 Usuários</button>
-            </div>
-          )}
-          <button className={`menu-btn ${telaAtiva === 'login' ? 'ativo' : ''}`} onClick={() => navegar('login')}>🔐 Login</button>
-        </div>
+        ))}
+      </div>
+
+      <p className="menu-grupo-titulo">Acessos</p>
+      <button
+        className={`menu-btn ${tela === 'funcionarios' ? 'ativo' : ''}`}
+        onClick={() => navegar('funcionarios')}
+      >
+        Funcionários
+      </button>
+      <button
+        className={`menu-btn ${tela === 'usuarios' ? 'ativo' : ''}`}
+        onClick={() => navegar('usuarios')}
+      >
+        Usuários
+      </button>
+
+      <p className="menu-grupo-titulo">Indicadores &amp; BI</p>
+      <button
+        className={`menu-btn ${tela === 'indicadores' ? 'ativo' : ''}`}
+        onClick={() => navegar('indicadores')}
+      >
+        Gerenciar indicadores
+      </button>
+      <div className="menu-indicadores" aria-label="Indicadores cadastrados">
+        {indicadores?.map(item => (
+          <button
+            key={item.Id}
+            className={`menu-btn-sub ${tela === 'visualizarIndicador' && indicadorSelecionado?.Id === item.Id ? 'ativo' : ''}`}
+            title={item.Nome}
+            onClick={() => selecionarIndicador(item)}
+          >
+            {item.Nome}
+          </button>
+        ))}
+      </div>
+
+      <p className="menu-grupo-titulo">Conta</p>
+      <button
+        className={`menu-btn ${tela === 'login' ? 'ativo' : ''}`}
+        onClick={() => navegar('login')}
+      >
+        Login
+      </button>
     </aside>
   )
 }

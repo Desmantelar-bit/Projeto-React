@@ -120,7 +120,7 @@ function Usuarios() {
                             <input type="file" accept="image/*" className={`form-control glass-input mb-3 ${erros.foto ? 'is-invalid' : ''}`} onChange={selecionarFoto} />
                             {erros.foto && <div className="text-danger small mb-2">{erros.foto}</div>}
                             {foto && (
-                                <img src={foto} alt="Foto do usuário" className="img-thumbnail mb-3" style={{ width: '220px', height: '220px', objectFit: 'cover', borderRadius: '12px' }} />
+                                <img src={foto} alt="Foto do usuário" className="img-thumbnail mb-3" style={{ width: '220px', height: '220px', objectFit: 'cover', borderRadius: '6px' }} />
                             )}
                             <div className="mb-3">
                                 <button type="button" className="glass-btn-outline" onClick={abrirCamera}>📷 Usar câmera</button>
@@ -128,7 +128,7 @@ function Usuarios() {
                             {erroCamera && <div className="glass-alert-warning">{erroCamera}</div>}
                             {cameraAberta && (
                                 <div className="mb-3">
-                                    <video ref={videoRef} autoPlay playsInline className="img-thumbnail mb-2" style={{ maxWidth: '320px', borderRadius: '10px' }} />
+                                    <video ref={videoRef} autoPlay playsInline className="img-thumbnail mb-2" style={{ maxWidth: '320px', borderRadius: '6px' }} />
                                     <div style={{ display: 'flex', gap: '8px' }}>
                                         <button type="button" className="glass-btn-success" onClick={capturarFoto}>📸 Capturar</button>
                                         <button type="button" className="glass-btn-danger" onClick={fecharCamera}>✕ Fechar</button>

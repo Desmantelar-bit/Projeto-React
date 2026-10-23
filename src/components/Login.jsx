@@ -64,15 +64,9 @@ function Login({ setTela }) {
     return (
         <section className="p-4">
             <div className="glass-card">
-                <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-                    <div style={{
-                        width: '56px', height: '56px', borderRadius: '16px',
-                        background: 'linear-gradient(135deg, #0090cc, #005f99)',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: '26px', margin: '0 auto 12px',
-                        boxShadow: '0 0 24px rgba(0, 180, 255, 0.25)'
-                    }}>🔐</div>
-                    <h2 style={{ margin: 0, color: '#e2e8f0' }}>Entrar no Sistema</h2>
+                <div className="login-heading">
+                    <div className="login-mark" aria-hidden="true">S</div>
+                    <h2>Entrar no Sistema</h2>
                 </div>
                 {mensagem && <div className="glass-alert-warning">{mensagem}</div>}
                 <form onSubmit={entrar}>

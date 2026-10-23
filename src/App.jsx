@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { indicadorService } from './service/indicadorService'
 import Header from './components/Header'
-import MenuLateral from './components/Menulateral'
+import MenuLateral from './components/MenuLateral'
 import Conteudo from './components/Conteudo'
 import Safra from './components/cadastros/Safra'
 import Unidade from './components/cadastros/Unidade'
@@ -8,7 +9,8 @@ import Equipamento from './components/cadastros/Equipamento'
 import Medicao from './components/cadastros/Medicao'
 import UnidadeMedida from './components/cadastros/UnidadeMedida'
 import TipoInformacao from './components/cadastros/TipoInformacao'
-import Indicadores from './components/cadastros/Indicadores'
+import Indicadores from './components/Indicadores'
+import VisualizarIndicador from './components/VisualizarIndicador'
 import Funcionarios from './components/cadastros/Funcionarios'
 import Usuarios from './components/cadastros/Usuarios'
 import Login from './components/Login'
@@ -19,6 +21,22 @@ import './components/cadastros/Estilo.css'
 function App() {
   const [menuAberto, setMenuAberto] = useState(true)
   const [tela, setTela] = useState('inicio')
+  const [indicadores, setIndicadores] = useState([])
+  const [indicadorSelecionado, setIndicadorSelecionado] = useState(null)
+
+  async function atualizarMenu() {
+    const dados = await indicadorService.listar()
+    setIndicadores(Array.isArray(dados) ? dados : [])
+  }
+
+  useEffect(() => {
+    atualizarMenu().catch(console.error)
+  }, [])
+
+  function selecionarIndicador(item) {
+    setIndicadorSelecionado(item)
+    setTela('visualizarIndicador')
+  }
 
   function alterarMenu() {
     setMenuAberto(!menuAberto)
@@ -26,9 +44,22 @@ function App() {
 
   return (
     <div className="app-wrapper">
-      <Header />
+      <Header
+        tela={tela}
+        indicador={indicadorSelecionado}
+        indicadores={indicadores}
+        setTela={setTela}
+        selecionarIndicador={selecionarIndicador}
+      />
       <div className="layout">
-        <MenuLateral aberto={menuAberto} setTela={setTela} />
+        <MenuLateral
+          aberto={menuAberto}
+          tela={tela}
+          setTela={setTela}
+          indicadores={indicadores}
+          indicadorSelecionado={indicadorSelecionado}
+          selecionarIndicador={selecionarIndicador}
+        />
         <main className="area-conteudo">
           <div className="topbar">
             <button className="btn-menu" onClick={alterarMenu}>
@@ -36,14 +67,26 @@ function App() {
             </button>
           </div>
           <div className="conteudo-scroll">
-            {tela === 'inicio' && <Conteudo />}
+            {tela === 'inicio' && (
+              <Conteudo
+                indicadores={indicadores}
+                setTela={setTela}
+                selecionarIndicador={selecionarIndicador}
+              />
+            )}
             {tela === 'safra' && <Safra />}
             {tela === 'unidade' && <Unidade />}
             {tela === 'equipamento' && <Equipamento />}
             {tela === 'medicao' && <Medicao />}
             {tela === 'unidademedida' && <UnidadeMedida />}
             {tela === 'tipoinformacao' && <TipoInformacao />}
-            {tela === 'indicadores' && <Indicadores />}
+            {tela === 'indicadores' && <Indicadores atualizarMenu={atualizarMenu} />}
+            {tela === 'visualizarIndicador' && (
+              <VisualizarIndicador
+                key={`${indicadorSelecionado?.Id ?? 'none'}-${indicadorSelecionado?.Url ?? ''}`}
+                indicador={indicadorSelecionado}
+              />
+            )}
             {tela === 'funcionarios' && <Funcionarios />}
             {tela === 'usuarios' && <Usuarios />}
             {tela === 'login' && <Login />}
