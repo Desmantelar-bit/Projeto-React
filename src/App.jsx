@@ -3,12 +3,7 @@ import { indicadorService } from './service/indicadorService'
 import Header from './components/Header'
 import MenuLateral from './components/MenuLateral'
 import Conteudo from './components/Conteudo'
-import Safra from './components/cadastros/Safra'
-import Unidade from './components/cadastros/Unidade'
-import Equipamento from './components/cadastros/Equipamento'
-import Medicao from './components/cadastros/Medicao'
-import UnidadeMedida from './components/cadastros/UnidadeMedida'
-import TipoInformacao from './components/cadastros/TipoInformacao'
+import CadastroApi from './components/CadastroApi.js'
 import Indicadores from './components/Indicadores'
 import VisualizarIndicador from './components/VisualizarIndicador'
 import Funcionarios from './components/cadastros/Funcionarios'
@@ -74,12 +69,12 @@ function App() {
                 selecionarIndicador={selecionarIndicador}
               />
             )}
-            {tela === 'safra' && <Safra />}
-            {tela === 'unidade' && <Unidade />}
-            {tela === 'equipamento' && <Equipamento />}
-            {tela === 'medicao' && <Medicao />}
-            {tela === 'unidademedida' && <UnidadeMedida />}
-            {tela === 'tipoinformacao' && <TipoInformacao />}
+            {tela === 'safras' && <CadastroApi recurso="safras" />}
+            {tela === 'unidades' && <CadastroApi recurso="unidades" />}
+            {tela === 'unidadesMedida' && <CadastroApi recurso="unidadesMedida" />}
+            {tela === 'equipamentos' && <CadastroApi recurso="equipamentos" />}
+            {tela === 'tiposInformacao' && <CadastroApi recurso="tiposInformacao" />}
+            {tela === 'medicoes' && <CadastroApi recurso="medicoes" />}
             {tela === 'indicadores' && <Indicadores atualizarMenu={atualizarMenu} />}
             {tela === 'visualizarIndicador' && (
               <VisualizarIndicador

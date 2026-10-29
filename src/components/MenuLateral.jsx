@@ -2,12 +2,12 @@ import { useState } from 'react'
 import './cadastros/Estilo.css'
 
 const gestaoBase = [
-  ['safra', 'Safra'],
-  ['unidade', 'Unidade'],
-  ['equipamento', 'Equipamento'],
-  ['medicao', 'Medição'],
-  ['unidademedida', 'Unidade de Medida'],
-  ['tipoinformacao', 'Tipo de Informação'],
+  ['safras', 'Safras'],
+  ['unidades', 'Unidades'],
+  ['unidadesMedida', 'Unidades de medida'],
+  ['equipamentos', 'Equipamentos'],
+  ['tiposInformacao', 'Tipos de informação'],
+  ['medicoes', 'Medições'],
 ]
 
 function MenuLateral({ aberto, tela, setTela, indicadores, indicadorSelecionado, selecionarIndicador }) {
@@ -48,15 +48,12 @@ function MenuLateral({ aberto, tela, setTela, indicadores, indicadorSelecionado,
       </div>
 
       <p className="menu-grupo-titulo">Acessos</p>
-      <button
-        className={`menu-btn ${tela === 'funcionarios' ? 'ativo' : ''}`}
-        onClick={() => navegar('funcionarios')}
-      >
+      <button className={`menu-btn ${tela === 'funcionarios' ? 'ativo' : ''}`} onClick={() => setTela('funcionarios')}>
         Funcionários
       </button>
       <button
         className={`menu-btn ${tela === 'usuarios' ? 'ativo' : ''}`}
-        onClick={() => navegar('usuarios')}
+        onClick={() => setTela('usuarios')}
       >
         Usuários
       </button>
@@ -64,7 +61,7 @@ function MenuLateral({ aberto, tela, setTela, indicadores, indicadorSelecionado,
       <p className="menu-grupo-titulo">Indicadores &amp; BI</p>
       <button
         className={`menu-btn ${tela === 'indicadores' ? 'ativo' : ''}`}
-        onClick={() => navegar('indicadores')}
+        onClick={() => setTela('indicadores')}
       >
         Gerenciar indicadores
       </button>

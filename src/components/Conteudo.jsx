@@ -5,7 +5,7 @@ const atalhos = [
     {
         titulo: 'Gestão base',
         descricao: 'Safras, unidades, equipamentos e medições',
-        destino: 'safra',
+        destino: 'safras',
         Icone: Database,
     },
     {
